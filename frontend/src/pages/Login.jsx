@@ -1,15 +1,17 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { asyncLoginUser } from '../store/actions/userActions'
 import { useDispatch } from 'react-redux'
 
 export default function Login() {
     const { register, reset, handleSubmit } = useForm()
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const LoginHandler = (user) => {
         console.log(user);
         dispatch(asyncLoginUser(user));
+        navigate("/products")
     } 
 
     return (
