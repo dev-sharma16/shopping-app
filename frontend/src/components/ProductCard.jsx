@@ -5,9 +5,10 @@ const ProductCard = ({
     title = "Product Title",
     price = 99.99,
     category = "Category",
+    onClick,
 }) => {
     return (
-        <div className="max-w-sm bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+        <div className="max-w-sm bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group" onClick={onClick}>
           {/* Image Container */}
             <div className="relative overflow-hidden">
                 <img
