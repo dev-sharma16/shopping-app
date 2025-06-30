@@ -1,5 +1,5 @@
 import axios from '../../api/axiosConfig'
-import { loadUser } from '../reducers/userSlice';
+import { loadUser, removeUser } from '../reducers/userSlice';
 
 export const asyncRegisterUser = (user) => async(dispatch, getState) => {
     try {
@@ -23,6 +23,7 @@ export const asyncLoginUser = (user) => async(dispatch, getState) => {
 export const asyncLogOutUser = () => async(dispatch, getState) => {
     try {
         localStorage.removeItem("user");
+        dispatch(removeUser())
         console.log("User logged out..!");
     } catch (error) {
         console.log(error);
