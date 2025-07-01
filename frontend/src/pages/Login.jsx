@@ -11,7 +11,7 @@ export default function Login() {
     const LoginHandler = (user) => {
         console.log(user);
         dispatch(asyncLoginUser(user));
-        navigate("/products")
+        navigate("/")
     } 
 
     return (

@@ -6,16 +6,34 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import CreateProduct from '../pages/admin/CreateProduct'
 import DetailsProducts from '../pages/admin/DetailsProducts'
+import { useSelector } from 'react-redux'
+import UserProfile from '../pages/user/UserProfile'
+import PageNotFound from '../pages/PageNotFound'
+import AuthWrapper from './AuthWrapper'
 
 export const Mainroutes = () => {
+    const user = useSelector((state)=> state.user.data)
+    console.log(user);
+    
     return (
         <Routes>
-            <Route path='/' element={<Home/>}></Route>
-            <Route path='/products' element={<Products/>}></Route>
+            {/* <Route path='/' element={user?<Products/>:<Home/>}></Route> */}
+            {/* <Route path='/products' element={<Products/>}></Route> */}
+            <Route path='/' element={<Products/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/register' element={<Register/>}></Route>
-            <Route path='/admin/create-product' element={<CreateProduct/>}></Route>
-            <Route path='/product/:id' element={<DetailsProducts/>}></Route>
+            <Route path='/admin/create-product' element={
+                <AuthWrapper>
+                    <CreateProduct/>
+                </AuthWrapper>
+            }></Route>
+            <Route path='/product/:id' element={
+                <AuthWrapper>
+                    <DetailsProducts/>
+                </AuthWrapper>
+            }></Route>
+            <Route path='*' element={<PageNotFound/>}></Route>
+            
         </Routes>
     )
 }
