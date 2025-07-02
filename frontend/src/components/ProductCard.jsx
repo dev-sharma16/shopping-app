@@ -6,11 +6,12 @@ const ProductCard = ({
     price = 99.99,
     category = "Category",
     onClick,
+    onClickCart,
 }) => {
     return (
-        <div className="max-w-sm bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group" onClick={onClick}>
+        <div className="max-w-sm bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"> 
           {/* Image Container */}
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden"  onClick={onClick}>
                 <img
                     src={imageUrl}
                     alt={title}
@@ -34,7 +35,10 @@ const ProductCard = ({
                     ₹{typeof price === "number" ? price.toFixed(2) : price}
                 </span>
 
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:shadow-md">
+                <button
+                    onClick={onClickCart}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:shadow-md"
+                >
                     Add to Cart
                 </button>
             </div>
