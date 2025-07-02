@@ -5,7 +5,7 @@ import { asyncLogOutUser } from '../store/actions/userActions'
 
 export const Nav = () => {
     const user = useSelector((state)=> state.user.data)
-    console.log(user);
+    // console.log(user);
     
     return (
         <nav className='mb-10 flex justify-center items-center gap-x-5 p-10'>
@@ -15,6 +15,7 @@ export const Nav = () => {
                     {/* <NavLink to='/products'>Products</NavLink> */}
                     {user.isAdmin ? <NavLink to='/admin/create-product'>Create Product</NavLink> : ""}
                     <NavLink to={'/profile/'+user.id}>Profile</NavLink>
+                    <NavLink to={'/cart'}>Cart</NavLink>
                 </>
             ) : (
                 <>
