@@ -37,7 +37,7 @@ function DetailsProducts() {
 
   const DeleteHandler = () => {
     dispatch(asyncDeleteProduct(id))
-    navigate('/products');
+    navigate('/');
   }
   
   return product ? (
