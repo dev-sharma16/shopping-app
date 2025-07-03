@@ -8,7 +8,7 @@ export const Nav = () => {
     // console.log(user);
     
     return (
-        <nav className='mb-10 flex justify-center items-center gap-x-5 p-10'>
+        <nav className=' flex justify-center items-center gap-x-5 p-10'>
             {user? (
                 <>
                     <NavLink to='/'>Home</NavLink>
